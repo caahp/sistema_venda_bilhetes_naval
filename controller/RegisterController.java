@@ -4,8 +4,8 @@
  */
 package controller;
 
-import View.Login;
-import View.Register;
+import view.Login;
+import view.Register;
 
 /**
  *

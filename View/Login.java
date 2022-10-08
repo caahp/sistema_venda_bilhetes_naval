@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import controller.LoginController;
 import javax.swing.JOptionPane;

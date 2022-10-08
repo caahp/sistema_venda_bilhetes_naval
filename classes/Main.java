@@ -13,7 +13,7 @@ public class Main{
          for (int i=0;i<2;i++){
              adm.cadastrarCliente(input.nextLine().toLowerCase());
         }
-
+        
         BoatManager boatManager = new BoatManager();
         boatManager.cadastrarBarco("barco vermelho lula");
         boatManager.cadastrarBarco("barco do bolsonaro");
@@ -21,6 +21,6 @@ public class Main{
         RoteManager roteManager = new RoteManager();
         roteManager.cadastrarRota("Coari");
         roteManager.cadastrarRota("Caribe");
-        
+
     }
 }

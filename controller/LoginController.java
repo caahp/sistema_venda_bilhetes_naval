@@ -4,9 +4,9 @@
  */
 package controller;
 
-import View.Destinos;
-import View.Register;
-import View.Login;
+import view.Destinos;
+import view.Login;
+import view.Register;
 
 /**
  *
