@@ -47,7 +47,7 @@ public class User{
 
     public boolean verificarUsuarioSenha(){
         try{
-            FileReader fr = new FileReader("funcionarioSenha.txt");
+            FileReader fr = new FileReader("sistema_venda_bilhetes_naval/funcionarioSenha.txt");
             BufferedReader ler = new BufferedReader(fr);
             while (ler.ready()){
                 String linha = ler.readLine();

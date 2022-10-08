@@ -8,6 +8,7 @@ public class Main{
         
          if (user.verificarUsuarioSenha()){System.out.println("OK");}
          else{System.out.println("errado.");}
+         
          MainManager adm = new MainManager();
 
          for (int i=0;i<2;i++){
