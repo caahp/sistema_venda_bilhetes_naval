@@ -1,5 +1,7 @@
 package view;
 
+import controller.Pagamento_Controller;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -11,11 +13,14 @@ package view;
  */
 public class Pagamento extends javax.swing.JFrame {
 
+    private final Pagamento_Controller controller;
+
     /**
      * Creates new form Pagamento
      */
     public Pagamento() {
         initComponents();
+        controller = new Pagamento_Controller(this);
     }
 
     /**
@@ -105,7 +110,7 @@ public class Pagamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.controller.goConfirmacaoScreen();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
