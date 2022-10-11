@@ -3,18 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import controller.Agendamento_Controller;
 /**
  *
  * @author PauloR
  */
 public class Agendamento extends javax.swing.JFrame {
 
+    private final Agendamento_Controller controller;
+   
+
     /**
      * Creates new form Agendamento
      */
     public Agendamento() {
         initComponents();
+        controller = new Agendamento_Controller(this);
+        
     }
 
     /**
@@ -55,6 +60,11 @@ public class Agendamento extends javax.swing.JFrame {
         jLabel4.setText("Horários disponíveis");
 
         jButton1.setText("Agendar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,6 +124,10 @@ public class Agendamento extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.controller.goPagamentoScreen();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
