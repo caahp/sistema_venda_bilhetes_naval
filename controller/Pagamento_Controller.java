@@ -10,11 +10,12 @@ import view.Confirmacao;
 /**
  *
  * @author PauloR
+
  */
 public class Pagamento_Controller {
 
     private final Pagamento view;
-    
+
     public Pagamento_Controller(Pagamento view){
         this.view = view;
     }

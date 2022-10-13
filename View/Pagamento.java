@@ -12,6 +12,7 @@ import controller.Pagamento_Controller;
  * @author PauloR
  */
 public class Pagamento extends javax.swing.JFrame {
+
     private final Pagamento_Controller controller;
 
     /**
