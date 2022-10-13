@@ -6,6 +6,10 @@ package controller;
 
 import view.Agendamento;
 import view.Destinos;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.io.BufferedReader;
 
 /**
  *
@@ -22,6 +26,22 @@ public class Destinos_Controller {
         Agendamento agendamento = new Agendamento();
         agendamento.setVisible(true);
         this.view.dispose();
+    }
+
+    public void lerDestinos(ArrayList<String> destinos){
+        try{
+            FileReader fr = new FileReader("sistema_venda_bilhetes_naval/funcionarioSenha.txt");
+            BufferedReader ler = new BufferedReader(fr);
+            while (ler.ready()){
+                String linha = ler.readLine();
+                destinos.add(linha);
+            ler.close();
+            fr.close();
+        }
+    }
+        catch (IOException error){
+            error.printStackTrace();
+        }
     }
     
     
