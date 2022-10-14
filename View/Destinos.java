@@ -19,10 +19,13 @@ import javax.swing.DefaultListModel;
 public class Destinos extends javax.swing.JFrame {
 
     private final Destinos_Controller controller;
+    public static String destino;
+
 
     /**
      * Creates new form DestinoseHorarios
      */
+    
     DefaultListModel<String> mod;
     public Destinos() {
         initComponents();
@@ -96,31 +99,55 @@ public class Destinos extends javax.swing.JFrame {
     public void lerDestinos(){
         jList1.setModel(mod);
         try{
-            FileReader fr = new FileReader("src/sistema_venda_bilhetes_naval/rotascadastradas.txt");
+            String caminho = "sistema_venda_bilhetes_naval/rotascadastradas.txt";
+            FileReader fr = new FileReader(caminho);
             BufferedReader ler = new BufferedReader(fr);
-            while (ler.ready()){
-                String linha = ler.readLine();
+            String linha = ler.readLine();
+            System.out.println(linha);
+            // do{
+            //     linha = ler.readLine();
+            //     System.out.println(linha);
+            // }while (linha != null);
+            while (true){
+                linha = ler.readLine();
+                if(linha == null){
+                    break;
+                }
                 mod.addElement(linha);
+                System.out.println(linha);
+            }
             ler.close();
             fr.close();
-        }
-    }
-        catch (IOException error){
+        // }catch(FileNotFoundException e){
+        //     System.out.println("arquivo n");
+        }catch (IOException error){
             // error.printStackTrace();
             System.out.println("1");
         }
-//        String str = "a";
-        
+      
     }
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //        this.lerDestinos();
-//      this.controller.goAgendamentoScreen();
+     
+     destino = jList1.getSelectedValue();
+     System.out.println(destino);
+     if(destino == null){
+        System.out.println("Selecione um destino");
+     }
+     else{
+        this.controller.goAgendamentoScreen();
+        
+        
+    }
+     
         
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    public static String getDestino(){
+        return destino;
+    }
     /**
      * @param args the command line arguments
      */

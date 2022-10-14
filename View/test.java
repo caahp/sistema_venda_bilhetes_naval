@@ -12,22 +12,25 @@ public class test {
     public static void main(String[] args) {
         
     try{
-        String caminho = "sistema_venda_bilhetes_naval/rotascadastradas.txt";
+        String caminho = "src/sistema_venda_bilhetes_naval/rotascadastradas.txt";
         FileReader fr = new FileReader(caminho);
         BufferedReader ler = new BufferedReader(fr);
         String linha = ler.readLine();
         System.out.println(linha);
-        do{
-            linha = ler.readLine();
-            System.out.println(linha);
-        }while (linha != null);
-        // while (linha != null){
+        // do{
         //     linha = ler.readLine();
-        //     // mod.addElement(linha);
         //     System.out.println(linha);
-        // ler.close();
-        // fr.close();
-        // }
+        // }while (linha != null);
+        while (true){
+            linha = ler.readLine();
+            if(linha == null){
+                break;
+            }
+            // mod.addElement(linha);
+            System.out.println(linha);
+        }
+        ler.close();
+        fr.close();
     // }catch(FileNotFoundException e){
     //     System.out.println("arquivo n");
     }catch (IOException error){
