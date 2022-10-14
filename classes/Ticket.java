@@ -3,15 +3,19 @@ package Classes;
 import java.sql.Date;
 
 public class Ticket {
-    private String name;
-    private Rote rote;
-    private Date hour;
+    String name;
+    String rote;
+    Date hour;
+    Double preco;
+    Payment typeOfPayment;
 
     
-    public Ticket(String name, Rote rote, Date hour) {
+    public Ticket(String name, Rote rote, Date hour, Double preco, Payment typeOfPayment) {
         this.name = name;
-        this.rote = rote;
+        this.rote = rote.getDestination();
         this.hour = hour;
+        this.preco = preco;
+        this.typeOfPayment = typeOfPayment;
     }
 
     public String getName() {
