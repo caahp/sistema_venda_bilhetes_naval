@@ -6,6 +6,7 @@ public class Ticket {
     private String name;
     private Rote rote;
     private Date hour;
+
     
     public Ticket(String name, Rote rote, Date hour) {
         this.name = name;
