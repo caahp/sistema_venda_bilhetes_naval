@@ -1,4 +1,4 @@
-package classes;
+package Classes;
 
 public class Client extends User{
     public Client(String login, String senha) {
