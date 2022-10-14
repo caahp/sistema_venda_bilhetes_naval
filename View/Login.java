@@ -155,16 +155,16 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String user_text = userText.getText().toString();
         String user_password = userPassword.getText().toString();
-        System.out.println(user_text);
-        System.out.println(user_password);
-        if(user_text == null || user_password == null){
+        // System.out.println(user_text);
+        // System.out.println(user_password);
+        if(user_text.isEmpty() || user_password.isEmpty()){
             // System.out.println("Preencher");
             
             JOptionPane.showMessageDialog(null, "Preencha os campos solicitados");
         }
         else{
-            // this.controller.goDestinosScreen();
-            System.out.println("OK");
+            this.controller.goDestinosScreen();
+            // System.out.println("OK");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
