@@ -12,7 +12,7 @@ import controller.Pagamento_Controller;
  * @author PauloR
  */
 public class Pagamento extends javax.swing.JFrame {
-
+    public static String modoPagamento;
     private final Pagamento_Controller controller;
 
     /**
@@ -125,23 +125,30 @@ public class Pagamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        modoPagamento = jButton1.getText();
         this.controller.goConfirmacaoScreen();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         this.controller.goConfirmacaoScreen();
+        modoPagamento = jButton2.getText();
+        this.controller.goConfirmacaoScreen();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        modoPagamento = jButton3.getText();
         this.controller.goConfirmacaoScreen();    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        modoPagamento = jButton4.getText();
         this.controller.goConfirmacaoScreen();    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public static String getModoPagamento(){
+        return modoPagamento;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

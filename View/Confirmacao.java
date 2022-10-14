@@ -49,7 +49,7 @@ public class Confirmacao extends javax.swing.JFrame {
 
         jLabel4.setText("Preço");
 
-        jLabel5.setText("Porto de Galinhas");
+        jLabel5.setText(Destinos.getDestino());
 
         jLabel6.setText("13:30");
 
@@ -57,7 +57,7 @@ public class Confirmacao extends javax.swing.JFrame {
 
         jLabel8.setText("Modo de pagamento");
 
-        jLabel9.setText("Cartão de débito");
+        jLabel9.setText(Pagamento.getModoPagamento());
 
         jButton1.setText("Confirmar");
 
@@ -128,6 +128,7 @@ public class Confirmacao extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
