@@ -53,8 +53,11 @@ public class Destinos extends javax.swing.JFrame {
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+<<<<<<< HEAD
             ArrayList<String> destinos = new ArrayList<>();
             // this.controller.lerDestinos();
+=======
+>>>>>>> e254e2414ce83aba3b03314fba31260d4c19a140
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
