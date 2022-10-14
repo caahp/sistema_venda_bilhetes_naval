@@ -2,6 +2,10 @@ package view;
 import java.util.ArrayList;
 
 import controller.Destinos_Controller;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.DefaultListModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,9 +23,12 @@ public class Destinos extends javax.swing.JFrame {
     /**
      * Creates new form DestinoseHorarios
      */
+    DefaultListModel<String> mod;
     public Destinos() {
         initComponents();
         controller = new Destinos_Controller(this);
+        mod = new DefaultListModel<>();
+        this.lerDestinos();
     }
 
     /**
@@ -51,13 +58,6 @@ public class Destinos extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            ArrayList<String> destinos = new ArrayList<>();
-            // this.controller.lerDestinos();
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -92,8 +92,33 @@ public class Destinos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public void lerDestinos(){
+        jList1.setModel(mod);
+        try{
+            FileReader fr = new FileReader("src/sistema_venda_bilhetes_naval/rotascadastradas.txt");
+            BufferedReader ler = new BufferedReader(fr);
+            while (ler.ready()){
+                String linha = ler.readLine();
+                mod.addElement(linha);
+            ler.close();
+            fr.close();
+        }
+    }
+        catch (IOException error){
+            // error.printStackTrace();
+            System.out.println("1");
+        }
+//        String str = "a";
+        
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.controller.goAgendamentoScreen();
+//        this.lerDestinos();
+//      this.controller.goAgendamentoScreen();
+        
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -123,11 +148,13 @@ public class Destinos extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Destinos().setVisible(true);
+                
             }
         });
     }

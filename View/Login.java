@@ -143,6 +143,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.controller.goRegisterScreen();
         
+        
 //        System.out.println(userText.getText());
 
         System.out.println(userPassword.getText());    }//GEN-LAST:event_jButton2ActionPerformed

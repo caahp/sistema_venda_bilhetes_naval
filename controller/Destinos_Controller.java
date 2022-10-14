@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.io.BufferedReader;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -28,12 +29,14 @@ public class Destinos_Controller {
         this.view.dispose();
     }
 
-    public void lerDestinos(ArrayList<String> destinos){
+    public void lerDestinos(DefaultListModel mod){
+        ArrayList<String> destinos = new ArrayList<>();
         try{
             FileReader fr = new FileReader("sistema_venda_bilhetes_naval/funcionarioSenha.txt");
             BufferedReader ler = new BufferedReader(fr);
             while (ler.ready()){
                 String linha = ler.readLine();
+            
                 destinos.add(linha);
             ler.close();
             fr.close();
@@ -43,6 +46,7 @@ public class Destinos_Controller {
             error.printStackTrace();
         }
     }
+    
     
     
     
