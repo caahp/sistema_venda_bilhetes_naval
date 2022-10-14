@@ -1,3 +1,5 @@
+package classes;
+
 public class Boat {
     private String name;
     private String capacity;
