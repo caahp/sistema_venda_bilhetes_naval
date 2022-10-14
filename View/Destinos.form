@@ -38,24 +38,15 @@
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
                       <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="90" max="-2" attributes="0"/>
-=======
-                      <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
->>>>>>> e254e2414ce83aba3b03314fba31260d4c19a140
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="277" max="-2" attributes="0"/>
                   </Group>
               </Group>
-<<<<<<< HEAD
               <EmptySpace pref="164" max="32767" attributes="0"/>
-=======
-              <EmptySpace pref="180" max="32767" attributes="0"/>
->>>>>>> e254e2414ce83aba3b03314fba31260d4c19a140
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,19 +55,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
               <EmptySpace pref="35" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="172" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-=======
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="193" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
->>>>>>> e254e2414ce83aba3b03314fba31260d4c19a140
           </Group>
       </Group>
     </DimensionLayout>
