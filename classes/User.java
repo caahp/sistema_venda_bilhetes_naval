@@ -23,7 +23,7 @@ public class User{
 
     public boolean verificarUsuarioLogin(){
         try{
-            FileReader fw = new FileReader("funcionarioNome.txt");
+            FileReader fw = new FileReader("sistema_venda_bilhetes_naval/funcionarioNome.txt");
             BufferedReader ler = new BufferedReader(fw);
 
             while (ler.ready()){
