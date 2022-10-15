@@ -1,4 +1,4 @@
-package Classes;
+package classes;
 
 import java.sql.Date;
 
@@ -26,11 +26,11 @@ public class Ticket {
         this.name = name;
     }
 
-    public Rote getRote() {
+    public String getRote() {
         return rote;
     }
 
-    public void setRote(Rote rote) {
+    public void setRote(String rote) {
         this.rote = rote;
     }
 

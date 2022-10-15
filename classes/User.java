@@ -1,4 +1,4 @@
-package Classes;
+package classes;
 
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -10,6 +10,10 @@ public class User{
     private static boolean token;
     public  String login;
     public  String senha;
+
+    public User(){
+        
+    }
 
     public User(String login, String senha) {
         this.login = login;
