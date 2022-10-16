@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.JOptionPane;
+
 import controller.RegisterController;
 
 /*
@@ -175,7 +177,31 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.controller.goLoginScreen();
+        String user_name = jTextField1.getText().toString();
+        String user_lastName = jTextField2.getText().toString();
+        String user_login = jTextField3.getText().toString();
+        String user_password = jTextField4.getText().toString();
+        String user_passwordConfirmation = jTextField5.getText().toString();
+        String user_email = jTextField6.getText().toString();
+        String user_phone = jTextField7.getText().toString();
+        // System.out.println(user_text);
+        // System.out.println(user_password);
+        if(user_name.isEmpty() || user_lastName.isEmpty() || user_login.isEmpty() || user_password.isEmpty() ||
+        user_passwordConfirmation.isEmpty() || user_email.isEmpty() || user_phone.isEmpty()){
+            // System.out.println("Preencher");
+            
+            JOptionPane.showMessageDialog(null, "Preencha os campos solicitados");
+        }
+        else if(user_password.equals(user_passwordConfirmation)){
+            this.controller.goLoginScreen();
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "As senha não correspondem");
+            
+            // System.out.println("OK");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
