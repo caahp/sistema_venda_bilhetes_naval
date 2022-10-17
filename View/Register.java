@@ -1,6 +1,20 @@
 package view;
 
-import controller.RegisterController;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
+
+import javax.swing.JOptionPane;
+
+import classes.Client;
+import classes.MainManager;
+import controller.Register_Controller;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,13 +27,17 @@ import controller.RegisterController;
  */
 public class Register extends javax.swing.JFrame {
 
-    private final RegisterController controller;
+    private final Register_Controller controller;
+    private  ArrayList<Client> clientes = new ArrayList<>();
+    MainManager main_manager = new MainManager();
+    // public static ArrayList<Client> clientes = new ArrayList<>();
+    // private ArrayList<>
     /**
      * Creates new form Cadastro
      */
     public Register() {
         initComponents();
-        controller = new RegisterController(this);
+        controller = new Register_Controller(this);
     }
 
     /**
@@ -74,7 +92,12 @@ public class Register extends javax.swing.JFrame {
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -174,8 +197,82 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.controller.goLoginScreen();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_jButton1ActionPerformed
+        String user_name = jTextField1.getText().toString();
+        String user_lastName = jTextField2.getText().toString();
+        String user_login = jTextField3.getText().toString();
+        String user_password = jTextField4.getText().toString();
+        String user_passwordConfirmation = jTextField5.getText().toString();
+        String user_email = jTextField6.getText().toString();
+        String user_phone = jTextField7.getText().toString();
+        // Dictionary<String,String> cliente = new Hashtable<String,String>();
+        // cliente.put(user_name, user_login);
+        // cliente.put(user_name, user_password);
+        // System.out.println(user_text);
+        // System.out.println(user_password);
+        // if(user_name.isEmpty() || user_lastName.isEmpty() || user_login.isEmpty() || user_password.isEmpty() ||
+        // user_passwordConfirmation.isEmpty() || user_email.isEmpty() || user_phone.isEmpty()){
+        //     // System.out.println("Preencher");
+            
+        //     JOptionPane.showMessageDialog(null, "Preencha os campos solicitados");
+        // }
+        if(user_password.equals(user_passwordConfirmation)){
+            Client cliente = new Client();
+            
+            cliente.setName(user_name);
+            cliente.setLogin(user_login);
+            cliente.setSenha(user_password);
+            FileInputStream fin = null;
+            ObjectInputStream ois = null;
+            try{
+                fin = new FileInputStream("sistema_venda_bilhetes_naval/clientesCadastrados.txt");
+                ois = new ObjectInputStream(fin);
+            
+                ArrayList<Client> clientes = (ArrayList<Client>) ois.readObject();
+
+
+                FileOutputStream fout = new FileOutputStream("sistema_venda_bilhetes_naval/clientesCadastrados.txt");
+                ObjectOutputStream oos = new ObjectOutputStream(fout);
+                clientes.add(cliente);
+                System.out.println(clientes.size());
+                oos.writeObject(clientes);
+                // oos.writeChars("\n");
+                oos.flush();
+                fout.flush();
+                oos.close();
+                fout.close();
+    
+                
+            }     
+            catch (Exception error){
+                FileOutputStream fout = new FileOutputStream("sistema_venda_bilhetes_naval/clientesCadastrados.txt");
+                ObjectOutputStream oos = new ObjectOutputStream(fout);
+                clientes.add(cliente);
+                System.out.println(clientes.size());
+                oos.writeObject(clientes);
+                // oos.writeChars("\n");
+                oos.flush();
+                fout.flush();
+                oos.close();
+                fout.close();
+                error.printStackTrace();
+            } 
+            // catch (ClassNotFoundException e) {
+                
+            //     // TODO Auto-generated catch block
+            //     e.printStackTrace();
+            // } 
+            // main_manager.cadastrarCliente(cliente);
+            this.controller.goLoginScreen();
+            // System.out.println(cliente.getSenha());
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "As senha não correspondem");
+            
+            // System.out.println("OK");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
