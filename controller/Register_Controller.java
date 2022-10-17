@@ -11,10 +11,10 @@ import view.Register;
  *
  * @author PauloR
  */
-public class RegisterController {
+public class Register_Controller {
     private final Register view;
     
-    public RegisterController(Register view) {
+    public Register_Controller(Register view) {
         this.view = view;
     }
     

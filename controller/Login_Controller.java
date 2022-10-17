@@ -12,11 +12,11 @@ import view.Register;
  *
  * @author PauloR
  */
-public class LoginController {
+public class Login_Controller {
 
     private final Login view;
 
-    public LoginController(Login view) {
+    public Login_Controller(Login view) {
         this.view = view;
     }
     

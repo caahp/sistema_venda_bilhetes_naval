@@ -1,10 +1,23 @@
 package view;
 
-import controller.LoginController;
+import controller.Login_Controller;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
 import static java.awt.event.KeyEvent.VK_ENTER;
 import javax.swing.JOptionPane;
 import javax.swing.*;
+import classes.Client;
+import classes.User;
+import classes.MainManager;
+import view.Register;
 
 
 
@@ -20,15 +33,19 @@ import javax.swing.*;
  * @author PauloR
  */
 public class Login extends javax.swing.JFrame {
+    private MainManager main_Manager;
 
-    private final LoginController controller;
+    private final Login_Controller controller;
+    private Client cliente;
+    private boolean verificador;
+    // private ArrayList<Client> clientes;
 
     /**
      * Creates new form Logint
      */
     public Login() {
         initComponents();
-        controller = new LoginController(this);
+        controller = new Login_Controller(this);
     }
 
     /**
@@ -150,20 +167,129 @@ public class Login extends javax.swing.JFrame {
 //        System.out.println(userText.getText());
 
         System.out.println(userPassword.getText());    }//GEN-LAST:event_jButton2ActionPerformed
+    
+        public class FootballClubFileWriter {
+
+            private static final String filename_1 = "FootballClub.ser";
+            private static final String filename_2 = "FootballClub.txt"; //Use for question 5
         
+            public static void serializeToDisk(ArrayList<Client> clubs) throws IOException {
+                    FileOutputStream fos = new FileOutputStream(filename_1);
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(clubs);
+                    fos.close();
+                    oos.close();
+            }
+        
+        
+            public static ArrayList<Client> deserializeFromDisk()throws IOException, ClassNotFoundException {
+        
+                ArrayList<Client> desrializaedClubs = new ArrayList<Client>();
+        
+                FileInputStream fileIn = new FileInputStream("FootballClub.ser");
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+        
+                Client club = (Client)in.readObject();
+        
+                return desrializaedClubs;
+            }
+        
+        }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String user_text = userText.getText().toString();
-        String user_password = userPassword.getText().toString();
-        // System.out.println(user_text);
-        // System.out.println(user_password);
-        if(user_text.isEmpty() || user_password.isEmpty()){
-            // System.out.println("Preencher");
+        String user_login = userText.getText();
+        String user_password = userPassword.getText();
+        User user = new User();
+        // System.out.println(user_login);
+        FileInputStream fin = null;
+        ObjectInputStream ois = null;
+        try{
+            System.out.println("a");
+            fin = new FileInputStream("sistema_venda_bilhetes_naval/clientesCadastrados.txt");
+            ois = new ObjectInputStream(fin);
             
+            ArrayList<Client> clientes = (ArrayList<Client>) ois.readObject();
+            // Client cliente = (ArrayList<Client>)in.readObject();
+            
+            // System.out.println("a");
+            // while(true){
+                // System.out.println("a");
+                
+                // try{
+                    // cliente = (Client) obj;
+                    // ArrayList<Client> clientes = (ArrayList<Client>) obj;
+                    // System.out.println(cliente.getLogin());
+                    for(Client cliente: clientes){
+                        System.out.println(cliente.getLogin() + cliente.getSenha());
+                        // System.out.println(cliente);
+                        if(user_login.equals(cliente.getLogin())  && user_password.equals(cliente.getSenha())){
+                            verificador = true;
+                            break;
+                        }
+                        else{
+                            verificador = false;
+                        }
+                }
+
+                    // if(user_login.equals(cliente.getLogin())  && user_password.equals(cliente.getSenha())){
+                    //     verificador = true;
+                    // }
+                    // else{
+                    //     verificador = false;
+                    // }
+                // }
+                // catch(Exception e){
+                //     System.out.println("ERROOOOOO");
+                //     break;
+                // }
+            // }
+        //     // cliente = (Client) ois.readObject();
+        //     // String user_login = view.user_login;
+        //     // System.out.println(cliente.getLogin());
+        //     // System.out.println(cliente.getSenha());
+        //     System.out.println(cliente.getLogin());
+        //     // System.out.println(user_login);
+        //     // System.out.println(user_password);
+        //     // if(user_login.equals(cliente.getLogin())  && user_password.equals(cliente.getSenha())){
+        //     //     verificador = true;
+        //     // }
+        //     // else{
+        //     //     verificador = false;
+        //     // }
+        //     ois.close();
+        //     fin.close();
+
+            
+    
+        //     // System.out.println(f1.toString());
+        //     // System.out.println(d1.toString());
+        //     // System.out.println(uea.toString());
+        }catch(Exception e){
+            // e.printStackTrace();
+            System.out.println(1);
+        }
+
+        // for(Client cliente: Register.clientes){
+        //     System.out.println(cliente);
+        //     if(user_login.equals(cliente.getLogin())  && user_password.equals(cliente.getSenha())){
+        //         verificador = true;
+        //     }
+        //     else{
+        //         verificador = false;
+        //     }
+        // }
+        
+
+
+        if(user_login.isEmpty() || user_password.isEmpty()){
+            // System.out.println("Preencher");
             JOptionPane.showMessageDialog(null, "Preencha os campos solicitados");
         }
-        else{
+        else if(verificador == true){
             this.controller.goDestinosScreen();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Login e senha não cadastrados");
             // System.out.println("OK");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -223,6 +349,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField userPassword;
     private javax.swing.JTextField userText;
     // End of variables declaration//GEN-END:variables
+    public String user_login;
+    public Object user_password;
 
     public void exibeMensagem(String mensagem) {
         JOptionPane.showMessageDialog(null, mensagem);

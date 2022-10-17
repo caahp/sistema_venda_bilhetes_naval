@@ -103,18 +103,15 @@ public class Destinos extends javax.swing.JFrame {
             FileReader fr = new FileReader(caminho);
             BufferedReader ler = new BufferedReader(fr);
             String linha = ler.readLine();
-            System.out.println(linha);
-            // do{
-            //     linha = ler.readLine();
-            //     System.out.println(linha);
-            // }while (linha != null);
+            // System.out.println(linha);
+
             while (true){
                 linha = ler.readLine();
                 if(linha == null){
                     break;
                 }
                 mod.addElement(linha);
-                System.out.println(linha);
+                // System.out.println(linha);
             }
             ler.close();
             fr.close();

@@ -2,14 +2,21 @@ package classes;
 
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+
+import view.Login;
+import classes.MainManager;
 
 
-public class User{
+public class User implements Serializable{
     private static boolean verificador;
     private static boolean token;
     public  String login;
     public  String senha;
+    private Client cliente;
 
     public User(){
         
@@ -20,6 +27,53 @@ public class User{
         this.senha = senha;
     }
 
+    
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public boolean verificarLoginSenha(Login view){
+        try{
+            FileInputStream fin = new FileInputStream("sistema_venda_bilhetes_naval/clientesCadastrados.txt");
+            ObjectInputStream ois = new ObjectInputStream(fin);
+            cliente = (Client) ois.readObject();
+            String user_login = view.user_login;
+            // System.out.println(cliente.getLogin());
+            // System.out.println(cliente.getSenha());
+            System.out.println(view.user_login);
+            System.out.println(view.user_password);
+            if(user_login.equals(cliente.getLogin())  && view.user_password.equals(cliente.getSenha())){
+                verificador = true;
+            }
+            else{
+                verificador = false;
+            }
+            ois.close();
+            fin.close();
+
+            
+    
+            // System.out.println(f1.toString());
+            // System.out.println(d1.toString());
+            // System.out.println(uea.toString());
+        }catch(Exception e){
+            // e.printStackTrace();
+            System.out.println(1);
+        }
+        return verificador;
+    }
 
     public boolean verificarUsuarioLogin(){
         try{
