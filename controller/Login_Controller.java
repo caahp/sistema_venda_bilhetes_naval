@@ -7,6 +7,7 @@ package controller;
 import view.Destinos;
 import view.Login;
 import view.Register;
+import view.Login_Funcionario;
 
 /**
  *
@@ -31,6 +32,12 @@ public class Login_Controller {
         destinos.setVisible(true);
         this.view.dispose();
     }
+    public void goFuncionariosScreen(){
+        Login_Funcionario funcionario = new Login_Funcionario();
+        funcionario.setVisible(true);
+        this.view.dispose();
+    }
+    
     public void fiz(){
         System.out.println("smsak");
         this.view.exibeMensagem("Executei");
