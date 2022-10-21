@@ -2,17 +2,15 @@ package classes;
 
 import java.io.Serializable;
 
-public class Client extends User implements Serializable{
-    public Client(){
+    
 
-    }
-
-<<<<<<< HEAD
 import java.io.Serializable;
 
 public class Client extends User implements Serializable{
-=======
->>>>>>> 168f816c44781af9daaad6e75abf95b7c727560f
+
+    public Client(){
+
+    }
     public Client(String login, String senha) {
         super(login, senha);
         //TODO Auto-generated constructor stub

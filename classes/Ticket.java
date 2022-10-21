@@ -12,7 +12,7 @@ public class Ticket {
     
     public Ticket(String name, Rote rote, Date hour, Double preco, Payment typeOfPayment) {
         this.name = name;
-        this.rote = rote.getDestination();
+        this.rote = rote.getDestino();
         this.hour = hour;
         this.preco = preco;
         this.typeOfPayment = typeOfPayment;

@@ -51,7 +51,8 @@ public class Confirmacao extends javax.swing.JFrame {
 
         jLabel5.setText(Destinos.getDestino());
 
-        jLabel6.setText("13:30");
+        // jLabel6.setText("13:30");
+        jLabel6.setText(Agendamento.getHorario());
 
         jLabel7.setText("R$ 1199,99");
 
