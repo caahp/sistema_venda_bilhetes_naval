@@ -17,7 +17,6 @@ Welcome to the **Boat Ticket Sales System**, a project tailored for the bustling
 
 - **OOP (Object-Oriented Programming)**: Encapsulation and abstraction for efficient code structure.
 - **MVC Architecture**: Layered organization for clarity and modularity.
-- **Database**: MySQL (or another relational database) for data persistence.
 
 ---
 
